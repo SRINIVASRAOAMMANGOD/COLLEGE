@@ -1,0 +1,93 @@
+from fpdf import FPDF
+
+# Create instance of FPDF class
+pdf = FPDF()
+
+# Add a page
+pdf.add_page()
+
+# Set title
+pdf.set_font("Arial", 'B', 16)
+pdf.cell(200, 10, "Computer Science Career Path - Guidance and Recommendations", ln=True, align='C')
+
+# Add a line break
+pdf.ln(10)
+
+# Set content font
+pdf.set_font("Arial", size=12)
+
+# Add Questions and Answers
+questions_answers = [
+    ("1. I am an engineering student pursuing computer science in 2nd year, I am confused as there are full stack, data science, AI, ML. Provide me with all domains of CS.",
+     """
+     Computer Science (CS) is a vast field with numerous specializations. Below is a list of key domains in CS you can explore:
+     
+     1. **Full Stack Development**: Web development from front-end (UI) to back-end (databases, servers).
+     2. **Data Science**: Analysis of data using statistical methods, machine learning, and big data tools.
+     3. **Artificial Intelligence (AI)**: Creating intelligent systems that mimic human behavior using data.
+     4. **Machine Learning (ML)**: Subset of AI, focused on creating algorithms that can learn from and make predictions on data.
+     5. **Cybersecurity**: Protecting systems, networks, and data from cyber threats.
+     6. **Cloud Computing**: Working with distributed systems and cloud platforms like AWS, Azure.
+     7. **Software Development**: Writing, testing, and maintaining software applications.
+     8. **Mobile App Development**: Creating mobile applications for iOS/Android.
+     9. **Game Development**: Building video games using specialized engines and frameworks.
+     10. **Blockchain Development**: Developing decentralized applications using blockchain technology.
+     11. **Database Management**: Working with databases, including relational and NoSQL databases.
+     12. **Computer Vision**: Enabling computers to interpret visual data from the world (images, videos).
+     13. **Natural Language Processing (NLP)**: Working with language data to build systems like chatbots, translation tools.
+     14. **Quantum Computing**: Computing using principles of quantum mechanics, an emerging field in CS.
+     15. **Robotics**: Combining AI, mechanical engineering, and hardware to create robots and automated systems.
+     16. **Computational Biology**: Applying computer science to biological data analysis.
+     """
+    ),
+    ("2. Sort it from easy to tough and duration needed to be expert in each.",
+     """
+     Based on the learning curve and the estimated time to become an expert in each domain, here’s a ranking from easiest to toughest:
+     
+     1. **Full Stack Development** - Duration to Expertise: 1.5 - 2 years
+     2. **Mobile App Development** - Duration to Expertise: 1.5 - 2 years
+     3. **Data Analytics** - Duration to Expertise: 1 - 1.5 years
+     4. **Cybersecurity (Basic Level)** - Duration to Expertise: 1.5 - 2 years
+     5. **Game Development** - Duration to Expertise: 2 - 3 years
+     6. **Database Management & Administration** - Duration to Expertise: 2 - 3 years
+     7. **Artificial Intelligence (AI)** - Duration to Expertise: 3 - 4 years
+     8. **Machine Learning (ML)** - Duration to Expertise: 3 - 4 years
+     9. **Data Science** - Duration to Expertise: 3 - 5 years
+     10. **Cloud Computing** - Duration to Expertise: 3 - 4 years
+     11. **Blockchain** - Duration to Expertise: 2 - 3 years
+     12. **Robotics** - Duration to Expertise: 4 - 5 years
+     13. **Computer Graphics and Visualization** - Duration to Expertise: 3 - 4 years
+     14. **Computational Biology & Bioinformatics** - Duration to Expertise: 4 - 5 years
+     15. **Quantum Computing** - Duration to Expertise: 5 - 7 years
+     """
+    ),
+    ("3. When I graduate in 2027, I need a job. Which one of these skills will land me a job with a decent package and job security of at least 5 years?",
+     """
+     By 2027, several skills will be in high demand and offer both competitive salaries and job security for at least 5 years. Here's a breakdown of the most promising skills:
+     
+     1. **Artificial Intelligence (AI) & Machine Learning (ML)**: These fields are expected to see massive growth, particularly in industries such as healthcare, finance, and autonomous vehicles. AI/ML experts will be highly sought after, earning **$100K–$150K/year**.
+     2. **Data Science**: As more companies rely on data for decision-making, the demand for data scientists will remain strong. Professionals in this field typically earn **$85K–$120K/year**.
+     3. **Cybersecurity**: With increasing cyber threats, cybersecurity experts will be essential for safeguarding digital infrastructure. Cybersecurity professionals earn **$90K–$150K/year**.
+     4. **Cloud Computing**: Cloud platforms like AWS, Azure, and Google Cloud continue to grow. Cloud engineers and architects can expect **$100K–$150K/year**.
+     5. **Software Engineering (Full Stack Development)**: Full-stack developers, who are capable of handling both front-end and back-end development, will continue to be in demand. Salaries for full-stack developers range from **$70K–$120K/year**.
+     6. **Blockchain Development**: Blockchain technology, especially in finance and decentralized applications, will continue to expand. Blockchain developers typically earn **$80K–$150K/year**.
+     7. **Robotics**: As automation in industries like manufacturing and healthcare increases, robotics engineers will be in demand. Robotics engineers earn **$80K–$120K/year**.
+     
+     These fields provide **strong job security**, with increasing salaries as the demand for skilled professionals grows.
+     """
+    )
+]
+
+# Loop through all questions and answers to add them to the PDF
+for question, answer in questions_answers:
+    pdf.set_font("Arial", 'B', 12)
+    pdf.multi_cell(0, 10, question)
+    pdf.set_font("Arial", size=12)
+    pdf.multi_cell(0, 10, answer)
+    pdf.ln(5)
+
+# Save the PDF to a file
+output_path = "/mnt/data/CS_Career_Guidance.pdf"
+pdf.output(output_path)
+
+output_path
