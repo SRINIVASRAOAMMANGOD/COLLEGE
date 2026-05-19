@@ -1,0 +1,122 @@
+TCP SERVER ORDER
+socket()
+↓
+bind()
+↓
+listen()
+↓
+accept()
+↓
+read()/recv()
+↓
+write()/send()
+↓
+close()
+
+
+TCP CLIENT ORDER
+socket()
+↓
+connect()
+↓
+write()/send()
+↓
+read()/recv()
+↓
+close()
+
+
+
+EASY TCP MEMORY
+
+SERVER
+Create
+Bind
+Listen
+Accept
+Read
+Write
+Close
+
+CLIENT
+Create
+Connect
+Write
+Read
+Close
+
+
+
+
+TCP BASIC CONNECTION FLOW
+CLIENT                         SERVER
+
+socket() -----------------> socket()
+
+                           bind()
+
+                           listen()
+
+connect() ----------------> accept()
+
+send() -------------------> recv()
+
+recv() <------------------- send()
+
+close() ------------------> close()
+
+
+
+
+UDP WORKFLOW (MOST IMPORTANT)
+UDP SERVER ORDER
+socket()
+↓
+bind()
+↓
+recvfrom()
+↓
+sendto()
+↓
+close()
+
+
+UDP CLIENT ORDER
+socket()
+↓
+sendto()
+↓
+recvfrom()
+↓
+close()
+
+
+EASY UDP MEMORY
+
+SERVER
+Create
+Bind
+Receive
+Send
+Close
+
+CLIENT
+Create
+Send
+Receive
+Close
+
+
+
+UDP BASIC FLOW
+CLIENT                         SERVER
+
+socket() -----------------> socket()
+
+                           bind()
+
+sendto() -----------------> recvfrom()
+
+recvfrom() <--------------- sendto()
+
+close() ------------------> close()
