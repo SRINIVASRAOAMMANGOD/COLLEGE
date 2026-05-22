@@ -1,4 +1,4 @@
-#include<stdio.h>
+KO#include<stdio.h>
 #include<stdlib.h>
 
 // Compare function for integers
